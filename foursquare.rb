@@ -24,7 +24,7 @@ class Foursquare
   
   #Allows you to check-in to a place.
   def checkin(params={})
-    self.class.get("http://api.foursquare.com/v1/checkin.json", :query=>params)
+    self.class.post("http://api.foursquare.com/v1/checkin.json", :body=>params)
   end
   
   #Returns a history of checkins for the authenticated user.
@@ -33,7 +33,7 @@ class Foursquare
   end
   
   #Returns profile information (badges, etc) for a given user. If the user has recent check-in data (ie, if the user is self or is a friend of the authenticating user), this data will be returned as well in a checkin block.
-  def user_verifiyCredentials(params={})
+  def user_verifyCredentials(params={})
     self.class.get("http://api.foursquare.com/v1/user.json", :query=>params)
   end
   
